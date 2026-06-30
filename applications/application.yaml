@@ -11,7 +11,7 @@ metadata:
     argocd.argoproj.io/compare-options: ServerSideDiff=true 
 spec:
   project: default
-  source:
+  sources:
     repoURL: https://charts.jetstack.io
     chart: cert-manager
     targetRevision: v1.15.3
