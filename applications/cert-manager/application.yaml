@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    app.kubernetes.io/name: cert-manager
+spec:
+  project: default
+  source:
+    repoURL: https://charts.jetstack.io
+    chart: cert-manager
+    targetRevision: v1.15.3
+    helm:
+      valueFiles:
+        - ../../apps/cert-manager/values.yaml
+  sources:
+    - repoURL: https://github.com/KatyaPikta/argocd_adoption.git
+      targetRevision: main
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=false
+      - ServerSideApply=true
+    # Для adoption - automated отключен
+    # После успешной синхронизации раскомментировать:
+    # automated:
+    #   prune: true
+    #   selfHeal: true
