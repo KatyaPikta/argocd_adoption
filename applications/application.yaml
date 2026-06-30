@@ -12,13 +12,12 @@ metadata:
 spec:
   project: default
   sources:
-    repoURL: https://charts.jetstack.io
-    chart: cert-manager
-    targetRevision: v1.15.3
-    helm:
-      valueFiles:
-        - ../../apps/cert-manager/values.yaml
-  sources:
+    - repoURL: https://charts.jetstack.io
+      chart: cert-manager
+      targetRevision: v1.15.3
+      helm:
+        valueFiles:
+          - ../../apps/cert-manager/values.yaml
     - repoURL: https://github.com/KatyaPikta/argocd_adoption.git
       targetRevision: main
   destination:
