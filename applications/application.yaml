@@ -28,8 +28,6 @@ spec:
     syncOptions:
       - CreateNamespace=false
       - ServerSideApply=true
-    # Для adoption - automated отключен
-    # После успешной синхронизации раскомментировать:
-    # automated:
-    #   prune: true
-    #   selfHeal: true
+    automated:
+      prune: true
+      selfHeal: true
