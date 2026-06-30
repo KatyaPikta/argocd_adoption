@@ -19,7 +19,6 @@ spec:
   sources:
     - repoURL: https://github.com/KatyaPikta/argocd_adoption.git
       targetRevision: main
-      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
