@@ -17,9 +17,10 @@ spec:
       targetRevision: v1.15.3
       helm:
         valueFiles:
-          - ../../apps/cert-manager/values.yaml
+          - $values/apps/cert-manager/values.yaml
     - repoURL: https://github.com/KatyaPikta/argocd_adoption.git
       targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
